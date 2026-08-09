@@ -1,19 +1,171 @@
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    border-right: var(--border-glass);
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1rem;
+    height: 100vh;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-header .brand h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.text-blue { color: var(--accent-blue); }
+.text-purple { color: var(--accent-purple); }
+
+.tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.btn-new-chat {
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: var(--radius-pill);
+    background: var(--button-gradient);
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 1.25rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-lg);
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+}
+
+.nav-item.active {
+    background: linear-gradient(90deg, rgba(0, 210, 255, 0.15) 0%, rgba(138, 43, 226, 0.15) 100%);
+    border-left: 3px solid var(--accent-blue);
+    color: var(--text-main);
+}
+
+/* Sidebar Footer Elements */
+.pro-badge-card {
+    background: var(--button-gradient);
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.usage-container {
+    background: var(--bg-card);
+    padding: 0.85rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1rem;
+}
+
+.usage-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #252d3d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--brand-gradient);
+}
+
+.reset-text {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+}
+
+.user-profile-tile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: var(--border-glass);
+}
+
+.user-info h4 {
+    font-size: 0.85rem;
+}
+
+.pro-pill {
+    font-size: 0.65rem;
+    background: rgba(138, 43, 226, 0.3);
+    color: var(--accent-purple);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* Responsive Mobile Sidebar */
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
-        width: 280px;
-        z-index: 9999;
-        /* Hides it off-screen to the left */
-        transform: translateX(-100%); 
-        transition: transform var(--transition-smooth);
-        box-shadow: 5px 0 25px rgba(0,0,0,0.8);
+        transform: translateX(-100%);
     }
 
-    /* When JS adds this class, it slides in smoothly */
-    .sidebar.active {
+    .sidebar.open {
         transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        z-index: 90;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
     }
 }
