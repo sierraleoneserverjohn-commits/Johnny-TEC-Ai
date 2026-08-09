@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johnny Tec - AI Assistant</title>
     
-    <!-- Strict Modular CSS Imports -->
+    <!-- Modular CSS Imports -->
     <link rel="stylesheet" href="Css/variables.css">
     <link rel="stylesheet" href="Css/main.css">
     <link rel="stylesheet" href="Css/sidebar.css">
@@ -18,116 +18,193 @@
         <aside id="left-sidebar" class="sidebar">
             <div class="sidebar-header">
                 <div class="brand">
-                    <h2><span class="text-blue">Johnny</span> <span class="text-purple">Tec</span>.Dev</h2>
+                    <h2><span class="text-blue">Johnny</span> <span class="text-white">Tec</span>.Dev</h2>
                     <p class="tagline">Building Digital Excellence</p>
                 </div>
+                <button id="btn-close-sidebar-mobile" class="icon-btn mobile-only">✕</button>
             </div>
 
-            <button id="btn-new-chat" class="btn-new-chat">
+            <!-- Gradient New Chat Button -->
+            <button id="btn-new-chat" class="btn-new-chat-gradient">
                 <span class="plus-icon">+</span> New Chat
             </button>
 
             <nav class="sidebar-nav">
                 <ul>
                     <li class="nav-item active" data-view="dashboard">
-                        <span class="nav-icon">🏠</span> Dashboard
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Dashboard</span>
                     </li>
                     <li class="nav-item" data-view="ai-chat">
-                        <span class="nav-icon">💬</span> AI Chat
+                        <span class="nav-icon">💬</span>
+                        <span class="nav-text">AI Chat</span>
+                        <span class="arrow-icon">›</span>
                     </li>
                     <li class="nav-item" data-view="code-assistant">
-                        <span class="nav-icon">&lt;/&gt;</span> Code Assistant
+                        <span class="nav-icon">&lt;/&gt;</span>
+                        <span class="nav-text">Code Assistant</span>
                     </li>
                     <li class="nav-item" data-view="image-generator">
-                        <span class="nav-icon">🖼️</span> Image Generator
+                        <span class="nav-icon">🖼️</span>
+                        <span class="nav-text">Image Generator</span>
                     </li>
                     <li class="nav-item" data-view="documents">
-                        <span class="nav-icon">📄</span> Documents
+                        <span class="nav-icon">📄</span>
+                        <span class="nav-text">Documents</span>
                     </li>
                     <li class="nav-item" data-view="knowledge-base">
-                        <span class="nav-icon">📖</span> Knowledge Base
+                        <span class="nav-icon">📖</span>
+                        <span class="nav-text">Knowledge Base</span>
                     </li>
                     <li class="nav-item" data-view="voice-assistant">
-                        <span class="nav-icon">🎙️</span> Voice Assistant
+                        <span class="nav-icon">🎙️</span>
+                        <span class="nav-text">Voice Assistant</span>
                     </li>
                     <li class="nav-item" data-view="history">
-                        <span class="nav-icon">🕒</span> History
+                        <span class="nav-icon">🕒</span>
+                        <span class="nav-text">History</span>
                     </li>
                 </ul>
             </nav>
 
             <div class="sidebar-footer">
-                <div class="pro-badge-card">
-                    <span class="crown">👑</span> Upgrade to Pro
+                <!-- Animated Upgrade to Pro Card -->
+                <div class="pro-badge-card animated-pro-card" id="btn-upgrade-pro">
+                    <div class="pro-info">
+                        <span class="crown">👑</span>
+                        <strong>Upgrade to Pro</strong>
+                    </div>
+                    <div class="pro-badge-gradient"></div>
                 </div>
+
+                <!-- Real-time API Usage Box -->
                 <div class="usage-container">
-                    <div class="usage-label">
+                    <div class="usage-header">
                         <span>AI Usage</span>
-                        <span class="percentage">78%</span>
+                        <span class="usage-trend">📈</span>
+                    </div>
+                    <div class="usage-sub">
+                        <span>This Month</span>
+                        <span id="usage-percentage" class="percentage">78%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 78%;"></div>
+                        <div id="usage-progress-fill" class="progress-fill" style="width: 78%;"></div>
                     </div>
-                    <p class="reset-text">Resets in 12 days</p>
+                    <div class="usage-meta">
+                        <span id="usage-count-text" class="usage-count">78 / 100 Calls</span>
+                        <span class="reset-text">Resets in 12 days</span>
+                    </div>
                 </div>
+
+                <!-- User Profile Tile -->
                 <div class="user-profile-tile">
-                    <div class="user-avatar">JT</div>
+                    <div class="avatar-wrapper">
+                        <div class="user-avatar-img">JT</div>
+                        <span class="online-dot"></span>
+                    </div>
                     <div class="user-info">
                         <h4>Johnny Tec.Dev</h4>
-                        <span class="pro-pill">Pro User</span>
+                        <span class="pro-pill">👑 Pro User</span>
                     </div>
+                    <button id="btn-profile-settings" class="profile-gear-btn" title="API Settings">⚙️</button>
                 </div>
             </div>
         </aside>
 
-        <!-- Sidebar Mobile Backdrop -->
+        <!-- Sidebar Backdrop overlay for mobile -->
         <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
         <!-- CENTER: Main Workspace Content -->
         <main id="main-wrapper" class="main-wrapper">
-            <!-- Top App Navigation Header -->
+            <!-- Top Navigation Header -->
             <header class="top-header">
                 <button id="btn-toggle-sidebar" class="icon-btn menu-btn" aria-label="Toggle Navigation">
                     ☰
                 </button>
                 <div class="header-title">
-                    <h3>AI Assistant</h3>
+                    <h3><span class="text-blue">AI</span> Assistant</h3>
                     <p>Smart. Fast. Reliable.</p>
                 </div>
                 <div class="header-actions">
-                    <button class="icon-btn notification-btn">🔔</button>
+                    <button class="icon-btn notification-btn">
+                        🔔<span class="notification-badge"></span>
+                    </button>
                     <button class="icon-btn theme-btn">🌙</button>
-                    <div class="header-avatar">JT</div>
+                    <!-- Replaced avatar with 3-dots option menu -->
+                    <button id="btn-open-api-modal" class="icon-btn options-menu-btn" title="API Health & Options">
+                        ⋮
+                    </button>
                 </div>
             </header>
 
-            <!-- Dynamic Section Container -->
+            <!-- Main Screen Container (Matched to Image 1) -->
             <div id="view-container" class="view-container">
-                <!-- AI Chat View Loaded by Default -->
+                <div class="hero-welcome">
+                    <h2>👋 Hey <span class="text-gradient">Johnny</span>,</h2>
+                    <h1>How can I help you today?</h1>
+                    <p class="hero-subtext">Your AI assistant is ready to help you with anything you need.</p>
+                </div>
+
+                <!-- 4 Action Cards Grid -->
+                <div class="action-cards-grid">
+                    <div class="action-card" data-prompt="Generate code for ">
+                        <div class="card-icon icon-code">
+                            <span>&lt;/&gt;</span>
+                        </div>
+                        <h3>Code</h3>
+                        <p>Generate code</p>
+                    </div>
+
+                    <div class="action-card" data-prompt="Explain in simple terms: ">
+                        <div class="card-icon icon-explain">
+                            <span>☰</span>
+                        </div>
+                        <h3>Explain</h3>
+                        <p>Explain anything</p>
+                    </div>
+
+                    <div class="action-card" data-prompt="Create creative content about ">
+                        <div class="card-icon icon-create">
+                            <span>✏️</span>
+                        </div>
+                        <h3>Create</h3>
+                        <p>Create content</p>
+                    </div>
+
+                    <div class="action-card" data-prompt="Solve this problem step-by-step: ">
+                        <div class="card-icon icon-solve">
+                            <span>❖</span>
+                        </div>
+                        <h3>Solve</h3>
+                        <p>Solve problems</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Bottom Chat/Search Bar with File Upload & Mic API -->
+            <!-- Bottom Chat Bar Capsule -->
             <footer class="bottom-chat-bar">
-                <!-- Hidden native file input for videos and files -->
                 <input type="file" id="media-file-input" accept="video/*,image/*,.pdf,.doc,.txt" multiple style="display: none;">
                 
-                <button id="btn-attach-file" class="bar-action-btn attach-btn" title="Upload video or file">
+                <button id="btn-attach-file" class="bar-icon-btn" title="Add item">
                     +
+                </button>
+                <button id="btn-paperclip" class="bar-icon-btn" title="Attach media">
+                    📎
                 </button>
 
                 <div class="input-field-wrapper">
                     <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
                 </div>
 
-                <button id="btn-mic-stt" class="bar-action-btn mic-btn" title="Translate voice to text">
+                <button id="btn-mic-stt" class="bar-icon-btn" title="Voice Input">
                     🎙️
                 </button>
 
-                <button id="btn-voice-live" class="bar-action-btn voice-live-btn" title="Live Voice Mode">
-                    🔊
+                <button id="btn-ai-spark" class="bar-icon-btn spark-btn" title="AI Assist">
+                    ✦
                 </button>
 
-                <button id="btn-send-message" class="bar-action-btn send-btn" title="Send message">
+                <button id="btn-send-message" class="send-btn-glowing" title="Send message">
                     ➔
                 </button>
             </footer>
@@ -153,39 +230,36 @@
                 <p class="section-desc">Detects connection state and outlines what each service powers.</p>
 
                 <div class="api-status-list">
-                    <!-- LLM API -->
                     <div class="api-status-card">
                         <div class="api-card-top">
                             <span class="api-name">🤖 Text & Logic Engine (Gemini / OpenAI)</span>
                             <span id="status-llm" class="status-badge status-checking">Checking...</span>
                         </div>
-                        <p class="api-purpose"><strong>Forced For:</strong> Processing chat messages, coding assistance, document summaries, and knowledge query responses.</p>
+                        <p class="api-purpose"><strong>Powers:</strong> Chat messages, code assistance, document summaries, and knowledge queries.</p>
                         <div class="key-input-group">
                             <input type="password" id="key-llm" placeholder="Enter Text API Key..." value="demo_key_active">
                             <button class="test-api-btn" onclick="testApiConnection('llm')">Test</button>
                         </div>
                     </div>
 
-                    <!-- Image API -->
                     <div class="api-status-card">
                         <div class="api-card-top">
                             <span class="api-name">🎨 Visual Generation API (DALL-E / Flux / Pollinations)</span>
                             <span id="status-image" class="status-badge status-checking">Checking...</span>
                         </div>
-                        <p class="api-purpose"><strong>Forced For:</strong> Rendering high-res AI artwork, prompt-to-image synthesis, and custom visual aspect ratio rendering.</p>
+                        <p class="api-purpose"><strong>Powers:</strong> Rendering high-res AI artwork and visual prompt generation.</p>
                         <div class="key-input-group">
                             <input type="password" id="key-image" placeholder="Enter Image API Key..." value="demo_key_active">
                             <button class="test-api-btn" onclick="testApiConnection('image')">Test</button>
                         </div>
                     </div>
 
-                    <!-- Voice / Speech API -->
                     <div class="api-status-card">
                         <div class="api-card-top">
                             <span class="api-name">🎙️ Speech Recognition & Synthesis (WebSpeech / Whisper)</span>
                             <span id="status-voice" class="status-badge status-checking">Checking...</span>
                         </div>
-                        <p class="api-purpose"><strong>Forced For:</strong> Translating live microphone voice into text input, and converting AI responses into speech audio.</p>
+                        <p class="api-purpose"><strong>Powers:</strong> Speech-to-text mic input and live voice assistant audio responses.</p>
                         <div class="key-input-group">
                             <input type="password" id="key-voice" placeholder="Native Browser API / ElevenLabs Key..." value="native_browser">
                             <button class="test-api-btn" onclick="testApiConnection('voice')">Test</button>
@@ -196,7 +270,8 @@
         </div>
     </div>
 
-    <!-- Production App Controller -->
+    <!-- Production JavaScript Controller -->
     <script src="js/app.js"></script>
 </body>
-</html>
+                    </html>
+                    
