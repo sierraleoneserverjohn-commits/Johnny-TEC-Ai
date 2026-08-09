@@ -28,3 +28,18 @@
     /* Typography */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
+:root {
+    --bg-main: #0A0A10;
+    --bg-sidebar: #12141E;
+    --bg-card: #1A1D2B;
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #8B949E;
+    
+    --accent-blue: #00D2FF;
+    --accent-purple: #8A2BE2;
+    --gradient-brand: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+    
+    --font-main: system-ui, -apple-system, sans-serif;
+}
+
