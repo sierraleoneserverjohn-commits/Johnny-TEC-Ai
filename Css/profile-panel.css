@@ -1,1 +1,38 @@
+/* Css/profile-panel.css */
+.profile-panel {
+    width: 320px;
+    background-color: var(--bg-sidebar);
+    border-left: var(--border-subtle);
+    position: fixed;
+    right: -320px; /* Hidden by default */
+    top: 0;
+    height: 100vh;
+    padding: 2rem;
+    transition: right var(--transition-smooth);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+/* Class toggled by JavaScript to show the panel */
+.profile-panel.active {
+    right: 0;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
 
