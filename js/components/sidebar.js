@@ -7,16 +7,22 @@ export function initSidebar() {
     const navItems = document.querySelectorAll('.nav-item');
     const btnNewChat = document.getElementById('btn-new-chat');
 
-    // Drawer Toggle Logic
     const toggleMenu = () => {
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle('active');
+        if (sidebar) sidebar.classList.toggle('open');
+        if (overlay) overlay.classList.toggle('active');
     };
 
-    if (toggleBtn) toggleBtn.addEventListener('click', toggleMenu);
-    if (overlay) overlay.addEventListener('click', toggleMenu);
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
 
-    // Sidebar View Selector
+    if (overlay) {
+        overlay.addEventListener('click', toggleMenu);
+    }
+
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             navItems.forEach(i => i.classList.remove('active'));
@@ -25,7 +31,7 @@ export function initSidebar() {
             const viewTarget = item.getAttribute('data-view');
             loadView(viewTarget);
 
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
                 toggleMenu();
             }
         });
@@ -34,6 +40,9 @@ export function initSidebar() {
     if (btnNewChat) {
         btnNewChat.addEventListener('click', () => {
             loadView('ai-chat');
+            if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                toggleMenu();
+            }
         });
     }
-}
+                                    }
