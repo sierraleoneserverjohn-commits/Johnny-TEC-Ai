@@ -354,4 +354,68 @@ function initChatBar() {
     if (sendBtn) sendBtn.addEventListener('click', sendMsg);
     if (chatInput) chatInput.addEventListener('keypress', (e) => e.key === 'Enter' && sendMsg());
 }
+// Real-Time API Usage Controller
+let currentApiUsage = parseInt(localStorage.getItem('user_api_usage')) || 78;
+const maxApiCalls = 100;
+
+function updateUsageTracker() {
+    const percentage = Math.min(Math.round((currentApiUsage / maxApiCalls) * 100), 100);
+    
+    const percentageEl = document.getElementById('usage-percentage');
+    const fillEl = document.getElementById('usage-progress-fill');
+    const countEl = document.getElementById('usage-count-text');
+
+    if (percentageEl) percentageEl.textContent = `${percentage}%`;
+    if (fillEl) fillEl.style.width = `${percentage}%`;
+    if (countEl) countEl.textContent = `${currentApiUsage} / ${maxApiCalls} Calls`;
+
+    localStorage.setItem('user_api_usage', currentApiUsage);
+}
+
+// Function to call whenever a message is sent or an API action runs
+function recordApiUsage() {
+    if (currentApiUsage < maxApiCalls) {
+        currentApiUsage += 1;
+        updateUsageTracker();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateUsageTracker();
+
+    // Open Modal when clicking the top-right 3-dots menu button or profile gear
+    const modal = document.getElementById('api-profile-modal');
+    const openBtn = document.getElementById('btn-open-api-modal');
+    const gearBtn = document.getElementById('btn-profile-settings');
+    const closeBtn = document.getElementById('close-modal-btn');
+
+    if (openBtn) openBtn.addEventListener('click', () => modal.classList.add('active'));
+    if (gearBtn) gearBtn.addEventListener('click', () => modal.classList.add('active'));
+    if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+
+    // Wire up Action Cards to input field
+    const cards = document.querySelectorAll('.action-card');
+    const chatInput = document.getElementById('chat-input');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const promptText = card.getAttribute('data-prompt');
+            if (chatInput) {
+                chatInput.value = promptText;
+                chatInput.focus();
+            }
+        });
+    });
+
+    // Increment usage on message send
+    const sendBtn = document.getElementById('btn-send-message');
+    if (sendBtn) {
+        sendBtn.addEventListener('click', () => {
+            if (chatInput && chatInput.value.trim() !== '') {
+                recordApiUsage();
+            }
+        });
+    }
+});
+
     
