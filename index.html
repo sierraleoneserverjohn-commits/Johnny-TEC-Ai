@@ -101,7 +101,7 @@
                 </div>
             </header>
 
-            <!-- Dynamic Section Container (Swapped by content-router.js) -->
+            <!-- Dynamic Section Container -->
             <div id="view-container" class="view-container">
                 <!-- AI Chat View Loaded by Default -->
             </div>
@@ -133,10 +133,70 @@
             </footer>
         </main>
     </div>
-        <!-- Replace the script tag at the bottom of index.html with this -->
+
+    <!-- API Health Monitor & Profile Modal -->
+    <div id="api-profile-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="user-modal-info">
+                    <div class="header-avatar">JT</div>
+                    <div>
+                        <h3>Johnny Tec.Dev</h3>
+                        <span class="pro-pill">Pro Administrator</span>
+                    </div>
+                </div>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <h4 class="section-title">📡 Live API Health & Status Monitor</h4>
+                <p class="section-desc">Detects connection state and outlines what each service powers.</p>
+
+                <div class="api-status-list">
+                    <!-- LLM API -->
+                    <div class="api-status-card">
+                        <div class="api-card-top">
+                            <span class="api-name">🤖 Text & Logic Engine (Gemini / OpenAI)</span>
+                            <span id="status-llm" class="status-badge status-checking">Checking...</span>
+                        </div>
+                        <p class="api-purpose"><strong>Forced For:</strong> Processing chat messages, coding assistance, document summaries, and knowledge query responses.</p>
+                        <div class="key-input-group">
+                            <input type="password" id="key-llm" placeholder="Enter Text API Key..." value="demo_key_active">
+                            <button class="test-api-btn" onclick="testApiConnection('llm')">Test</button>
+                        </div>
+                    </div>
+
+                    <!-- Image API -->
+                    <div class="api-status-card">
+                        <div class="api-card-top">
+                            <span class="api-name">🎨 Visual Generation API (DALL-E / Flux / Pollinations)</span>
+                            <span id="status-image" class="status-badge status-checking">Checking...</span>
+                        </div>
+                        <p class="api-purpose"><strong>Forced For:</strong> Rendering high-res AI artwork, prompt-to-image synthesis, and custom visual aspect ratio rendering.</p>
+                        <div class="key-input-group">
+                            <input type="password" id="key-image" placeholder="Enter Image API Key..." value="demo_key_active">
+                            <button class="test-api-btn" onclick="testApiConnection('image')">Test</button>
+                        </div>
+                    </div>
+
+                    <!-- Voice / Speech API -->
+                    <div class="api-status-card">
+                        <div class="api-card-top">
+                            <span class="api-name">🎙️ Speech Recognition & Synthesis (WebSpeech / Whisper)</span>
+                            <span id="status-voice" class="status-badge status-checking">Checking...</span>
+                        </div>
+                        <p class="api-purpose"><strong>Forced For:</strong> Translating live microphone voice into text input, and converting AI responses into speech audio.</p>
+                        <div class="key-input-group">
+                            <input type="password" id="key-voice" placeholder="Native Browser API / ElevenLabs Key..." value="native_browser">
+                            <button class="test-api-btn" onclick="testApiConnection('voice')">Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Production App Controller -->
     <script src="js/app.js"></script>
 </body>
 </html>
-
-
-
