@@ -1,16 +1,14 @@
-// js/app.js
-
-// Import all your strictly isolated modules
 import { initSidebar } from './components/sidebar.js';
-import { initSettings } from './components/settings.js';
+import { initChatBar } from './components/chat-bar.js';
+import { loadView } from './components/content-router.js';
 
-// Boot up Johnny Tec
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Initializing Johnny Tec Ecosystem...");
-    
-    // Initialize components
+    // Initialize Navigation Drawer
     initSidebar();
-    initSettings();
-    
-    console.log("All modules loaded successfully.");
+
+    // Initialize Search, Attachment +, and Voice-To-Text Mic
+    initChatBar();
+
+    // Load initial view (AI Chat)
+    loadView('ai-chat');
 });
