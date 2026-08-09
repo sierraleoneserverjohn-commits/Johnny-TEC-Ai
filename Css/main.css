@@ -1,1 +1,35 @@
+/* Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    display: flex; /* Sets up the left-to-right layout */
+    height: 100vh;
+    overflow: hidden; /* Prevents the whole page from scrolling */
+}
+
+/* The central main screen */
+#main-content {
+    flex-grow: 1; /* Takes up all remaining space */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
 
