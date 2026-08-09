@@ -1,24 +1,30 @@
+/* Css/variables.css */
 :root {
-    /* Backgrounds */
-    --bg-main: #0b0f19;
-    --bg-card: #151a28;
-    --bg-sidebar: #0f1423;
+    /* Core Backgrounds */
+    --bg-main: #0A0A10;
+    --bg-sidebar: #12141E;
+    --bg-card: #1A1D2B;
+    --bg-card-hover: #222639;
     
     /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #8b949e;
+    --text-primary: #FFFFFF;
+    --text-secondary: #8B949E;
     
-    /* Brand & Accent Colors (The Neon Vibe) */
-    --accent-blue: #00d2ff;
-    --accent-purple: #8a2be2;
+    /* Johnny Tec Brand Colors */
+    --accent-blue: #00D2FF;
+    --accent-purple: #8A2BE2;
     --gradient-brand: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
     
-    /* Borders & UI Elements */
+    /* Structural Rules */
     --border-radius-lg: 16px;
     --border-radius-md: 12px;
-    --border-color: rgba(255, 255, 255, 0.05);
+    --border-radius-sm: 8px;
+    --border-subtle: 1px solid rgba(255, 255, 255, 0.05);
     
-    /* Fonts */
-    --font-main: 'Inter', -apple-system, sans-serif;
+    /* Animation Speeds */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Typography */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
-
