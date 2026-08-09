@@ -1,12 +1,16 @@
-// Import your individual components
+// js/app.js
+
+// Import all your strictly isolated modules
 import { initSidebar } from './components/sidebar.js';
-import { initProfilePanel } from './components/profile.js';
+import { initSettings } from './components/settings.js';
 
-// Initialize everything when the document loads
+// Boot up Johnny Tec
 document.addEventListener('DOMContentLoaded', () => {
-    initSidebar();
-    initProfilePanel();
+    console.log("Initializing Johnny Tec Ecosystem...");
     
-    console.log("Johnny Tec UI Initialized successfully.");
+    // Initialize components
+    initSidebar();
+    initSettings();
+    
+    console.log("All modules loaded successfully.");
 });
-
