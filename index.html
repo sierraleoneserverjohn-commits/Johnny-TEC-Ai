@@ -3,86 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johnny Tec - AI Assistant</title>
+    <title>AI Workspace</title>
     
-    <!-- FIXED: Using capital 'Css' to match your GitHub repo perfectly -->
-    <link rel="stylesheet" href="Css/variables.css">
-    <link rel="stylesheet" href="Css/main.css">
-    <link rel="stylesheet" href="Css/sidebar.css">
-    <link rel="stylesheet" href="Css/chat-cards.css">
-    <link rel="stylesheet" href="Css/profile-panel.css">
+    <!-- Isolated CSS Modules -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/main-screen.css">
+    <link rel="stylesheet" href="styles/profile-panel.css">
 </head>
 <body>
 
-    <!-- LEFT: The Navigation Sidebar -->
-    <nav id="left-sidebar" class="sidebar">
-        <div class="brand">
-            <h2><span style="color: var(--accent-blue);">Johnny</span> <span style="color: var(--accent-purple);">Tec</span>.Dev</h2>
-            <p>Building Digital Excellence</p>
-        </div>
-
-        <!-- 1. New Chat (Clears Screen) -->
-        <button id="btn-new-chat" class="btn-primary">
-            + New Chat
-        </button>
-
-        <ul class="sidebar-menu">
-            <!-- 2. AI Chat (Main Screen) -->
-            <li id="menu-ai-chat" class="menu-item active">
-                <span class="icon">💬</span> AI Chat
-            </li>
-
-            <!-- 3. Image Generator -->
-            <li id="menu-image-gen" class="menu-item">
-                <span class="icon">🖼️</span> Image Generator
-            </li>
-
-            <!-- 4. Voice Assistant (Live Mode) -->
-            <li id="menu-voice-assist" class="menu-item">
-                <span class="icon">🎙️</span> Voice Assistant
-            </li>
-
-            <!-- 5. History -->
-            <li id="menu-history" class="menu-item">
-                <span class="icon">🕒</span> History
-            </li>
-        </ul>
-    </nav>
-
-    <!-- CENTER: The Main Screen Layout -->
-    <main id="main-content">
-        <!-- Top header area -->
-        <header>
-            <h1>Hey <span class="text-gradient">Johnny,</span></h1>
-            <p class="subtitle">How can I help you today?</p>
-        </header>
-
-        <!-- Grid for the features -->
-        <section id="feature-grid" class="grid-container">
-            <div class="chat-card">
-                <div class="card-icon">&lt;/&gt;</div>
-                <h3>Code</h3>
-                <p>Generate code</p>
+    <div class="app-container">
+        <!-- Settings & Navigation Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <nav>
+                <button id="btn-chat">Chat</button>
+                <button id="btn-image-gen">Image Generator</button>
+                <button id="btn-voice">Voice Assistant</button>
+            </nav>
+            <div id="api-settings" class="settings-panel">
+                <!-- API inputs handled by sidebar.js -->
             </div>
-            <div class="chat-card">
-                <div class="card-icon">≡</div>
-                <h3>Explain</h3>
-                <p>Explain anything</p>
-            </div>
-            <div class="chat-card">
-                <div class="card-icon">✎</div>
-                <h3>Create</h3>
-                <p>Create content</p>
-            </div>
-            <div class="chat-card">
-                <div class="card-icon">⟡</div>
-                <h3>Solve</h3>
-                <p>Solve problems</p>
-            </div>
-        </section>
-    </main>
+        </aside>
 
-    <!-- Modular JS Engine - Ensure this matches your lowercase 'js' folder -->
-    <script type="module" src="js/app.js"></script>
+        <!-- Main Workspace -->
+        <main id="main-screen" class="main-screen">
+            <!-- Dynamic content injected here -->
+        </main>
+
+        <!-- Profile Panel -->
+        <aside id="profile-panel" class="profile-panel">
+            <!-- Profile logic handled by profile.js -->
+        </aside>
+    </div>
+
+    <!-- Isolated JavaScript Modules -->
+    <script type="module" src="js/sidebar.js"></script>
+    <script type="module" src="js/main-screen.js"></script>
+    <script type="module" src="js/profile-panel.js"></script>
 </body>
 </html>
