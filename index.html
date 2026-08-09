@@ -5,34 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johnny Tec - AI Assistant</title>
     
-    <!-- Import modular CSS -->
+    <!-- Strict Isolation: Importing modular CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/chat-cards.css">
     <link rel="stylesheet" href="css/profile-panel.css">
 </head>
 <body>
 
-    <!-- Left Sidebar Component -->
-    <nav id="left-sidebar" class="sidebar hidden">
-        <!-- Sidebar content goes here -->
+    <!-- LEFT: The Navigation Sidebar -->
+    <nav id="left-sidebar" class="sidebar">
+        <!-- Sidebar logic goes here -->
     </nav>
 
-    <!-- Main Chat Interface -->
+    <!-- CENTER: The Main Screen Layout -->
     <main id="main-content">
-        <button id="toggle-sidebar-btn">☰</button>
-        <h1>Hey Johnny,</h1>
-        <p>How can I help you today?</p>
-        <!-- Grid cards go here -->
+        <!-- Top header area -->
+        <header>
+            <h1>Hey <span style="background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Johnny,</span></h1>
+            <p class="subtitle">How can I help you today?</p>
+        </header>
+
+        <!-- Grid for the features (Code, Explain, Create, Solve) -->
+        <section id="feature-grid" class="grid-container">
+            <!-- Chat cards will be injected here -->
+        </section>
     </main>
 
-    <!-- Right Profile Panel Component -->
-    <aside id="right-profile-panel" class="profile-panel hidden">
-        <!-- Profile content (Pro User, Models, Recent Chats) goes here -->
+    <!-- RIGHT: The User Profile Panel -->
+    <aside id="right-profile-panel" class="profile-panel">
+        <!-- Profile logic goes here -->
     </aside>
 
-    <!-- The Main Brain Module -->
+    <!-- Modular JS Engine -->
     <script type="module" src="js/app.js"></script>
 </body>
 </html>
-
